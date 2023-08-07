@@ -1,0 +1,130 @@
+<script type="text/html" data-help-name="nanapo">
+    <p>ビット・トレード・ワン社製の<a href="https://bit-trade-one.co.jp/ad7sgpr/Nanapo">Nanapo</a>をコントロールするためのノードです。表示内容を変更やスイッチの情報取得が行えます</p>
+
+    <h3>Inputs</h3>
+        <dl class="message-properties">
+            <dt>payload
+                <span class="property-type">string or number</span></dt>
+            <dd>Nanapoに送るデータをセットします。</dd>
+            <dd>
+                <table border="1">
+                <tr>
+                  <th>入力</th>
+                  <th>説明</th>
+                </tr>
+                <tr>
+                  <td>先頭が@以外</td>
+                  <td>文字列や数値を表示します(最大8文字or8桁)（<a href="https://bit-trade-one.github.io/AD7SGPR/SendCommandSpecification.html#%E8%8B%B1%E6%95%B0%E5%AD%97%E8%A8%98%E5%8F%B7ascii">参照先</a>）</td>
+                </tr>
+                <tr>
+                  <td>@HEX</td>
+                  <td>７セグメントディスプレイの点灯部分をを16進数で指定します（<a href="https://bit-trade-one.github.io/AD7SGPR/SendCommandSpecification.html#hex">参照先</a>）</td>
+                </tr>
+                <tr>
+                  <td>@CLR</td>
+                  <td>７セグメントディスプレイに表示された内容を消去します（<a href="https://bit-trade-one.github.io/AD7SGPR/SendCommandSpecification.html#clr">参照先</a>）</td>
+                </tr>
+                <tr>
+                  <td>@ANI</td>
+                  <td>トランジション（表示遷移時のアニメーション）の設定/解除します（<a href="https://bit-trade-one.github.io/AD7SGPR/SendCommandSpecification.html#ani">参照先</a>）</td>
+                </tr>
+                <tr>
+                  <td>@7SG</td>
+                  <td>7セグメントディスプレイの表示モードを設定します（<a href="https://bit-trade-one.github.io/AD7SGPR/SendCommandSpecification.html#7sg">参照先</a>）</td>
+                </tr>
+                <tr>
+                  <td>@SGR</td>
+                  <td>現在の7セグメントディスプレイの表示モードを取得できます（<a href="https://bit-trade-one.github.io/AD7SGPR/SendCommandSpecification.html#sgr">参照先</a>）</td>
+                </tr>
+                <tr>
+                  <td>@BRI</td>
+                  <td>7セグメントディスプレイの輝度を設定します（<a href="https://bit-trade-one.github.io/AD7SGPR/SendCommandSpecification.html#bri">参照先</a>）</td>
+                </tr>
+                <tr>
+                  <td>@BRR</td>
+                  <td>現在の7セグメントディスプレイの輝度を取得できます（<a href="https://bit-trade-one.github.io/AD7SGPR/SendCommandSpecification.html#brr">参照先</a>）</td>
+                </tr>
+              </table>
+            </dd>
+        </dl>
+
+    <h3>Outputs</h3>
+        <ol class="node-ports">
+            <li>Standard output
+                <dl class="message-properties">
+                    <dt>payload.cmd
+                        <span class="property-type">string</span></dt>
+                    <dd>受信したデータの種別</dd>
+                    <dd>
+                      <table border="1">
+                        <tr>
+                          <th>種別</th>
+                          <th>説明</th>
+                        </tr>
+                        <tr>
+                          <td>rxData:</td>
+                          <td>送信に対するレスポンス</td>
+                        </tr>
+                        <tr>
+                          <td>push</td>
+                          <td>ボタン押下時の受信</td>
+                        </tr>
+                        <tr>
+                          <td>7SG</td>
+                          <td>7セグメントディスプレイの表示モード</td>
+                        </tr>
+                        <tr>
+                          <td>brightness:</td>
+                          <td>7セグメントディスプレイの輝度</td>
+                        </tr>
+                        <tr>
+                          <td>error</td>
+                          <td>エラー</td>
+                        </tr>
+                        <tr>
+                          <td>etc</td>
+                          <td>その他のレスポンス</td>
+                        </tr>
+                      </table>
+                    </dd>
+                </dl>
+                <dl class="message-properties">
+                    <dt>payload.data
+                        <span class="property-type">string</span></dt>
+                    <dd>種別ごとの受信したデータの内容</dd>
+                    <dd>
+                      <table border="1">
+                        <tr>
+                          <th>種別</th>
+                          <th>内容</th>
+                        </tr>
+                        <tr>
+                          <td>rxData:</td>
+                          <td>送信に対するレスポンス内容</td>
+                        </tr>
+                        <tr>
+                          <td>push</td>
+                          <td>押したボタン "A" or "B" or "C" or "D"</td>
+                        </tr>
+                        <tr>
+                          <td>7SG</td>
+                          <td>表示モード "on" or "off"</td>
+                        </tr>
+                        <tr>
+                          <td>brightness:</td>
+                          <td>輝度 "0"～"7"</td>
+                        </tr>
+                        <tr>
+                          <td>error</td>
+                          <td>エラー内容</td>
+                        </tr>
+                        <tr>
+                          <td>etc</td>
+                          <td>その他のレスポンス内容</td>
+                        </tr>
+                      </table>
+                    </dd>
+                </dl>
+            </li>
+        </ol>
+</script>

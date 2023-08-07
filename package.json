@@ -1,0 +1,27 @@
+{
+  "name": "node-red-contrib-nanapo",
+  "version": "1.0.1",
+  "description": "",
+  "node-red": {
+    "nodes": {
+      "nanapo": "src/nanapo.js"
+    }
+  },
+  "main": "src/nanapo.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "node-red"
+  ],
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "serialport": "^10.4.0"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "node-red": "^1.0.5",
+    "node-red-node-test-helper": "^0.2.7"
+  }
+}
